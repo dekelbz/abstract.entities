@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/app.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">WebSocket connection:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="id">What is the dog's id?</label>
+                    <input type="text" id="id" class="form-control" placeholder="Dog id here">
+                </div>
+                <button id="get-by-id" class="btn btn-default" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-inline" id="dog-form">
+            <div class="form-group">
+                <input type="text" name="sound" class="form-control" placeholder="sound here">
+                <input type="number" name="age" class="form-control" placeholder="age here">
+                <input type="text" name="gender" class="form-control" placeholder="gender here">
+                <input type="checkbox" name="dangerous" class="form-control" placeholder="dangerous here">
+                <input type="number" name="id" class="form-control" placeholder="id here">
+                <input type="text" name="@class" class="hidden" value=".Dog">
+            </div>
+            <button id="save-dog" class="btn btn-default" type="submit">save</button>
+        </form>
+    </div>
+    <div class="row">
+        <form class="form-inline" id="cat-form">
+            <div class="form-group">
+                <input type="text" name="sound" class="form-control" placeholder="sound here">
+                <input type="number" name="age" class="form-control" placeholder="age here">
+                <input type="text" name="gender" class="form-control" placeholder="gender here">
+                <input type="number" name="color" class="form-control" placeholder="color here">
+                <input type="number" name="beauty" class="form-control" placeholder="beauty here">
+                <input type="number" name="id" class="form-control" placeholder="id here">
+                <input type="text" name="@class" class="hidden" value=".Cat">
+            </div>
+            <button id="save-cat" class="btn btn-default" type="submit">save</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Greetings</th>
+                </tr>
+                </thead>
+                <tbody id="greetings">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
